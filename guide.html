@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcRaiders Leveling Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e4e4e4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(15, 15, 30, 0.9);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .philosophy {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        
+        .philosophy h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+        
+        .focus-items {
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+        
+        .avoid-items {
+            color: #ff9999;
+            font-style: italic;
+        }
+        
+        .phase {
+            background: rgba(78, 205, 196, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+        
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(78, 205, 196, 0.3);
+        }
+        
+        .phase-title {
+            color: #4ecdc4;
+            font-size: 1.5em;
+        }
+        
+        .phase-levels {
+            background: rgba(78, 205, 196, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .phase-goal {
+            color: #95e1d3;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4ecdc4;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .skill-level {
+            color: #ffd93d;
+            font-weight: bold;
+            display: inline-block;
+            min-width: 100px;
+        }
+        
+        .skill-name {
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+        
+        .skill-why {
+            color: #b8b8b8;
+            margin-left: 10px;
+        }
+        
+        .priority {
+            background: rgba(255, 107, 107, 0.2);
+            border-left-color: #ff6b6b;
+        }
+        
+        .priority .skill-name {
+            color: #ff6b6b;
+        }
+        
+        .note {
+            background: rgba(255, 217, 61, 0.1);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #ffd93d;
+            font-size: 0.95em;
+        }
+        
+        .breakpoints {
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .breakpoints h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+        }
+        
+        .breakpoint-item {
+            padding: 8px 12px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .breakpoint-level {
+            color: #ffd93d;
+            font-weight: bold;
+        }
+        
+        .summary {
+            background: rgba(78, 205, 196, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .summary h3 {
+            color: #4ecdc4;
+            margin-bottom: 15px;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 8px;
+            min-width: 150px;
+        }
+        
+        .stat-label {
+            color: #95e1d3;
+            font-size: 0.9em;
+        }
+        
+        .stat-value {
+            color: #ffd93d;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        .prestige {
+            background: rgba(255, 217, 61, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .prestige h3 {
+            color: #ffd93d;
+            margin-bottom: 15px;
+        }
+        
+        .prestige-item {
+            padding: 10px;
+            margin: 8px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .prestige-level {
+            color: #ffd93d;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .phase-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .phase-levels {
+                margin-top: 10px;
+            }
+            
+            .stat-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 ArcRaiders Leveling Guide</h1>
+            <p>Levels 1-76 Optimization Path</p>
+        </header>
+        
+        <div class="philosophy">
+            <h3>Core Philosophy</h3>
+            <p><span class="focus-items">Focus on:</span> Stamina → Movement Speed → Survivability → Looting Speed</p>
+            <p><span class="avoid-items">Avoid:</span> Sound/noise perks (minimal impact)</p>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 1: Early Survival</h2>
+                <span class="phase-levels">Levels 1-3</span>
+            </div>
+            <p class="phase-goal">Goal: Stay alive and craft essentials</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 1:</span>
+                <span class="skill-name">Agile Croucher 1/5</span>
+                <span class="skill-why">- Foundation for mobility</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 2:</span>
+                <span class="skill-name">Revitalizing Squat 1/5</span>
+                <span class="skill-why">- Foundation for stamina</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Level 3:</span>
+                <span class="skill-name">In-Round Crafting 1/1</span>
+                <span class="skill-why">- PRIORITY - Craft bandages and shield rechargers</span>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 2: Stamina Foundation</h2>
+                <span class="phase-levels">Levels 4-14</span>
+            </div>
+            <p class="phase-goal">Goal: Move faster across the map</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 4:</span>
+                <span class="skill-name">Nimble Climber 1/5</span>
+                <span class="skill-why">- Faster climbing</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Levels 5-9:</span>
+                <span class="skill-name">Marathon Runner 5/5</span>
+                <span class="skill-why">- Max stamina pool</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Levels 10-14:</span>
+                <span class="skill-name">Youthful Lungs 5/5</span>
+                <span class="skill-why">- Max stamina regen</span>
+            </div>
+            
+            <div class="note">
+                <strong>What you get:</strong> Significantly more stamina for running and better regeneration
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 3: Heavy Armor Support</h2>
+                <span class="phase-levels">Levels 15-19</span>
+            </div>
+            <p class="phase-goal">Goal: Use medium shields without movement penalty</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Levels 15-19:</span>
+                <span class="skill-name">Used to the Weight 5/5</span>
+                <span class="skill-why">- Maintain speed with better shields</span>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 4: Combat Stamina</h2>
+                <span class="phase-levels">Levels 20-25</span>
+            </div>
+            <p class="phase-goal">Goal: Survive ambushes with emergency stamina</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 20:</span>
+                <span class="skill-name">Blast-Born 1/5</span>
+                <span class="skill-why">- Unlock path to Fight or Flight</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Levels 21-25:</span>
+                <span class="skill-name">Fight or Flight 5/5</span>
+                <span class="skill-why">- Emergency stamina when shield breaks</span>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 5: Breach Speed & Emergency Tools</h2>
+                <span class="phase-levels">Levels 26-33</span>
+            </div>
+            <p class="phase-goal">Goal: Open containers faster, unlock survival mechanics</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 26:</span>
+                <span class="skill-name">Gentle Pressure 1/5</span>
+                <span class="skill-why">- Unlock Proficient Pryer</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Levels 27-29:</span>
+                <span class="skill-name">Proficient Pryer 3/5</span>
+                <span class="skill-why">- Faster breaching (partial)</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Level 30:</span>
+                <span class="skill-name">Unburdened Roll 1/1</span>
+                <span class="skill-why">- FREE stamina after dodge rolling</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Level 31:</span>
+                <span class="skill-name">Survivor's Stamina 1/1</span>
+                <span class="skill-why">- Stamina regen when critically hurt</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Levels 32-33:</span>
+                <span class="skill-name">Proficient Pryer 5/5</span>
+                <span class="skill-why">- Max breach speed</span>
+            </div>
+            
+            <div class="note">
+                <strong>What you unlock:</strong> Two critical emergency mechanics for when things go wrong
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 6: Mobility Completion</h2>
+                <span class="phase-levels">Levels 34-39</span>
+            </div>
+            <p class="phase-goal">Goal: Maximize stamina efficiency during movement</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Levels 34-36:</span>
+                <span class="skill-name">Slip and Slide 3/5</span>
+                <span class="skill-why">- Longer slides (author's preference) OR Sturdy Ankles</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 37:</span>
+                <span class="skill-name">Sturdy Ankles 1/5</span>
+                <span class="skill-why">- Minimal fall damage</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Level 38:</span>
+                <span class="skill-name">Carry the Momentum 1/1</span>
+                <span class="skill-why">- Better stamina usage while moving</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Level 39:</span>
+                <span class="skill-name">Calming Stroll 1/1</span>
+                <span class="skill-why">- Stamina efficiency boost</span>
+            </div>
+            
+            <div class="note">
+                <strong>Alternative:</strong> You can swap Slip and Slide/Sturdy Ankles priorities based on playstyle
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 7: Looting Efficiency</h2>
+                <span class="phase-levels">Levels 40-50</span>
+            </div>
+            <p class="phase-goal">Goal: Loot faster = more XP per round</p>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Levels 40-43:</span>
+                <span class="skill-name">Revitalizing Squat 5/5</span>
+                <span class="skill-why">- Max stamina from squatting</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Levels 44-48:</span>
+                <span class="skill-name">Looter's Instincts 5/5</span>
+                <span class="skill-why">- Faster looting speed</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Levels 49-50:</span>
+                <span class="skill-name">Agile Croucher 3/5</span>
+                <span class="skill-why">- Faster crouching (partial)</span>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 8: Carry Capacity Setup</h2>
+                <span class="phase-levels">Levels 51-59</span>
+            </div>
+            <p class="phase-goal">Goal: Carry more loot without being slowed</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 51:</span>
+                <span class="skill-name">Silent Scavenger 1/5</span>
+                <span class="skill-why">- Unlock path (not for noise benefit)</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 52:</span>
+                <span class="skill-name">Good as New 1/1</span>
+                <span class="skill-why">- Quality of life</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Level 53:</span>
+                <span class="skill-name">Traveling Tinkerer 1/1</span>
+                <span class="skill-why">- Craft raider hatch keys (lifesaver)</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 54:</span>
+                <span class="skill-name">Suffer in Silence 1/1</span>
+                <span class="skill-why">- Unlock Broad Shoulders</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Levels 55-59:</span>
+                <span class="skill-name">Broad Shoulders 5/5</span>
+                <span class="skill-why">- Rarely become over-encumbered</span>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 9: Speed Looting</h2>
+                <span class="phase-levels">Levels 60-64</span>
+            </div>
+            <p class="phase-goal">Goal: Maximum looting efficiency</p>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Levels 60-64:</span>
+                <span class="skill-name">Looter's Luck 5/5</span>
+                <span class="skill-why">- Fastest possible looting</span>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 10: Final Push to Breaches</h2>
+                <span class="phase-levels">Levels 65-73</span>
+            </div>
+            <p class="phase-goal">Goal: Handle heavy loads and unlock breach access</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Levels 65-69:</span>
+                <span class="skill-name">Stubborn Mule 5/5</span>
+                <span class="skill-why">- Stamina regen when over-encumbered</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Levels 70-71:</span>
+                <span class="skill-name">Agile Croucher 5/5</span>
+                <span class="skill-why">- Max crouch speed</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 72:</span>
+                <span class="skill-name">Three Deep Breaths 1/5</span>
+                <span class="skill-why">- Extra stamina boost</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Level 73:</span>
+                <span class="skill-name">Security Breach 1/1</span>
+                <span class="skill-why">- UNLOCK BREACHES</span>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <div class="phase-header">
+                <h2 class="phase-title">PHASE 11: Final Optimization</h2>
+                <span class="phase-levels">Levels 74-76</span>
+            </div>
+            <p class="phase-goal">Goal: Fine-tune carrying capacity and weapon handling</p>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 74:</span>
+                <span class="skill-name">A Little Extra 1/1</span>
+                <span class="skill-why">- Extra resources for crafting heals</span>
+            </div>
+            
+            <div class="skill-item">
+                <span class="skill-level">Level 75:</span>
+                <span class="skill-name">Loaded Arms 1/1</span>
+                <span class="skill-why">- Weapons weigh less = carry more</span>
+            </div>
+            
+            <div class="skill-item priority">
+                <span class="skill-level">Level 76:</span>
+                <span class="skill-name">Crawl Before You Walk 1/5</span>
+                <span class="skill-why">- Crawl faster to safety when downed</span>
+            </div>
+            
+            <div class="note">
+                <strong>Level 76 Alternatives:</strong><br>
+                • <strong>Effortless Swing 1/5</strong> - One extra melee swing (PvP/Harvester)<br>
+                • <strong>Downed But Determined 1/5</strong> - Slightly longer bleedout time<br>
+                • <strong>Crawl Before You Walk 1/5</strong> - Author's choice for safety
+            </div>
+        </div>
+        
+        <div class="summary">
+            <h3>Final Build Summary (Level 76)</h3>
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="stat-label">Conditioning</div>
+                    <div class="stat-value">21</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Mobility</div>
+                    <div class="stat-value">18</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Survival</div>
+                    <div class="stat-value">37</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="breakpoints">
+            <h3>🎯 Key Breakpoints to Remember</h3>
+            
+            <div class="breakpoint-item">
+                <span class="breakpoint-level">Level 3:</span> Can craft in-round (ESSENTIAL)
+            </div>
+            <div class="breakpoint-item">
+                <span class="breakpoint-level">Level 14:</span> Stamina foundation complete
+            </div>
+            <div class="breakpoint-item">
+                <span class="breakpoint-level">Level 25:</span> Combat stamina ready
+            </div>
+            <div class="breakpoint-item">
+                <span class="breakpoint-level">Level 33:</span> Breach speed + emergency mechanics ready
+            </div>
+            <div class="breakpoint-item">
+                <span class="breakpoint-level">Level 53:</span> Can craft raider hatch keys
+            </div>
+            <div class="breakpoint-item">
+                <span class="breakpoint-level">Level 59:</span> Carry capacity maximized
+            </div>
+            <div class="breakpoint-item">
+                <span class="breakpoint-level">Level 73:</span> Breaches unlocked
+            </div>
+            <div class="breakpoint-item">
+                <span class="breakpoint-level">Level 76:</span> Build complete
+            </div>
+        </div>
+        
+        <div class="prestige">
+            <h3>⭐ Post-Prestige Priority (Levels 77+)</h3>
+            
+            <div class="prestige-item">
+                <span class="prestige-level">Prestige 1 (Levels 77-81):</span> Max Crawl Before You Walk, start Downed But Determined
+            </div>
+            
+            <div class="prestige-item">
+                <span class="prestige-level">Prestige 2 (Levels 82-86):</span> Max Downed But Determined, start Turtle Crawl
+            </div>
+            
+            <div class="prestige-item">
+                <span class="prestige-level">Prestige 3 (Levels 87-91):</span> Max Turtle Crawl, start Effortless Swing
+            </div>
+            
+            <div class="prestige-item">
+                <span class="prestige-level">Prestige 4 (Levels 92-96):</span> Max Effortless Swing, start Back on Your Feet
+            </div>
+        </div>
+    </div>
+</body>
+</html>
