@@ -1,5 +1,6 @@
 # paddythawizard-ArcRaiders-Leveling-Guide
 The HTML and actionable version of the Reddit post by u/paddythawizard about leveling up in ArcRaiders.
+
 Reddit post: https://www.reddit.com/r/ArcRaiders/comments/1prlpo7/250_hours_in_this_is_how_i_plan_to_build_my_skill/
 
 # Arc Raiders Leveling Guide
